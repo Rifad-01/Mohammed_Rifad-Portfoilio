@@ -1,5 +1,4 @@
 import React from 'react';
-import { profileImageAsBase64 } from './imageData';
 
 const Hero: React.FC = () => {
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -20,7 +19,7 @@ const Hero: React.FC = () => {
           <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full blur-2xl opacity-50 dark:opacity-40"></div>
             <img
-              src={profileImageAsBase64}
+              src="/public/rifaddoc-removebg-preview (1).png"
               alt="Mohammed Rifad"
               className="relative w-full h-full object-cover rounded-full border-4 border-slate-200 dark:border-slate-700 shadow-2xl"
             />
