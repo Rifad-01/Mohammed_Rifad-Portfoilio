@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import type { Project } from '../types';
 import Section from './Section';
 import { GitHubIcon } from './icons/GitHubIcon';
@@ -34,8 +34,17 @@ const projectsData: Project[] = [
   },
 ];
 
-const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
-  <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-6 flex flex-col h-full border border-slate-200 dark:border-slate-700 transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-blue-500/10 dark:hover:shadow-blue-400/10">
+const ProjectCard: React.FC<{ project: Project; index: number; isVisible: boolean }> = ({ project, index, isVisible }) => {
+  const slideDirection = index % 2 === 0 ? 'left' : 'right';
+  
+  return (
+  <div className={`bg-slate-50 dark:bg-slate-800 rounded-lg p-6 flex flex-col h-full border border-slate-200 dark:border-slate-700 transform hover:-translate-y-2 transition-all duration-700 shadow-lg hover:shadow-blue-500/10 dark:hover:shadow-blue-400/10 ${
+    isVisible 
+      ? 'translate-x-0 opacity-100' 
+      : slideDirection === 'left' 
+        ? '-translate-x-full opacity-0' 
+        : 'translate-x-full opacity-0'
+  }`}>
     <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{project.title}</h3>
     <div className="flex flex-wrap gap-2 mb-4">
       {project.tech.map((t) => (
@@ -55,14 +64,56 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
       {project.linkText}
     </a>
   </div>
-);
+  );
+};
 
 const Projects: React.FC = () => {
+  const [visibleProjects, setVisibleProjects] = useState<boolean[]>(new Array(projectsData.length).fill(false));
+  const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observers = projectRefs.current.map((ref, index) => {
+      if (!ref) return null;
+      
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setVisibleProjects(prev => {
+              const newVisible = [...prev];
+              newVisible[index] = true;
+              return newVisible;
+            });
+          }
+        },
+        {
+          threshold: 0.2,
+          rootMargin: '0px 0px -50px 0px'
+        }
+      );
+      
+      observer.observe(ref);
+      return observer;
+    });
+
+    return () => {
+      observers.forEach(observer => observer?.disconnect());
+    };
+  }, []);
+
   return (
     <Section id="projects" title="My Projects">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {projectsData.map((project) => (
-          <ProjectCard key={project.title} project={project} />
+        {projectsData.map((project, index) => (
+          <div
+            key={project.title}
+            ref={el => projectRefs.current[index] = el}
+          >
+            <ProjectCard 
+              project={project} 
+              index={index} 
+              isVisible={visibleProjects[index]} 
+            />
+          </div>
         ))}
       </div>
     </Section>
