@@ -66,13 +66,13 @@ const Header: React.FC = () => {
             >
               <span className="transition-all duration-300 ease-in-out">M</span>
               <span
-                className="inline-block overflow-hidden align-bottom transition-all duration-500 ease-in-out max-w-0 opacity-0 group-hover:max-w-[120px] group-hover:opacity-100"
+                className="inline-block overflow-hidden align-bottom transition-all duration-500 ease-in-out max-w-0 opacity-0 group-hover:max-w-[140px] group-hover:opacity-100"
               >
                 ohammed
               </span>
               <span className="ml-1.5 transition-all duration-300 ease-in-out">R</span>
               <span
-                className="inline-block overflow-hidden align-bottom transition-all duration-500 ease-in-out max-w-0 opacity-0 group-hover:max-w-[70px] group-hover:opacity-100"
+                className="inline-block overflow-hidden align-bottom transition-all duration-500 ease-in-out max-w-0 opacity-0 group-hover:max-w-[80px] group-hover:opacity-100"
               >
                 ifad
               </span>

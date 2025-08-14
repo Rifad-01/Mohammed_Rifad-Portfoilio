@@ -35,18 +35,6 @@ const skillsData = [
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg'
   },
   { 
-    name: 'Bootstrap', 
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg'
-  },
-  { 
-    name: 'Node.js', 
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg'
-  },
-  { 
-    name: 'Express.js', 
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg'
-  },
-  { 
     name: 'React', 
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'
   },
@@ -55,10 +43,6 @@ const skillsData = [
   { 
     name: 'Firebase', 
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg'
-  },
-  { 
-    name: 'MySQL', 
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg'
   },
   
   // Tools & Platforms
@@ -69,14 +53,6 @@ const skillsData = [
   { 
     name: 'GitHub', 
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg'
-  },
-  { 
-    name: 'VS Code', 
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg'
-  },
-  { 
-    name: 'Android Studio', 
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg'
   },
   { 
     name: 'Figma', 
@@ -95,10 +71,6 @@ const skillsData = [
   { 
     name: 'Google AI Studio', 
     logo: 'https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg'
-  },
-  { 
-    name: 'Loveable', 
-    logo: 'https://images.crunchbase.com/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/erkxwhl1gd48xfhe2yld'
   },
   { 
     name: 'ChatGPT', 
